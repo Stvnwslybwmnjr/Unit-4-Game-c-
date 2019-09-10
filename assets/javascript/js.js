@@ -22,55 +22,89 @@ $(document).ready(function () {
     var displaywins = $("#wins");
     var displayloses = $("#loses");
     var displaysum = $("#sum");
-
+    
     displaywins.text(wins);
     displayloses.text(loses);
-
-    function reset(){
+    
+    function reset() {
         goal = Math.floor(Math.random() * 101 + 19);
         button1 = Math.floor(Math.random() * 11 + 1);
         button2 = Math.floor(Math.random() * 11 + 1);
         button3 = Math.floor(Math.random() * 11 + 1);
         button4 = Math.floor(Math.random() * 11 + 1);
+        let sum = 0;
         displaysum.text(sum);
         $("#goal").text(goal);
         
     }
-
+    
     $(".btn1").on("click", function () {
-        sum += button1;
+        sum = sum + button1;
         displaysum.text(sum);
         console.log(button1);
-        return sum;
+        if (sum == goal) {
+            alert("you won");
+            reset();
+        }
+        else if (sum > goal) {
+            alert("you lost");
+            reset();
+        };
+       
     });
 
     $(".btn2").on("click", function () {
         sum = sum + button2;
         displaysum.text(sum);
         console.log(button2);
-        return sum;
+        if (sum == goal) {
+            alert("you won");
+            reset();
+        }
+        else if (sum > goal) {
+            alert("you lost");
+            reset();
+        };
+       
     });
 
     $(".btn3").on("click", function () {
         sum = sum + button3;
         displaysum.text(sum);
         console.log(button3);
-        return sum;
+        if (sum == goal) {
+            alert("you won");
+            reset();
+        }
+        else if (sum > goal) {
+            alert("you lost");
+            reset();
+        };
+        
     });
 
     $(".btn4").on("click", function () {
         sum = sum + button4;
         displaysum.text(sum)
         console.log(button4);
-        var globalsum = sum
+        if (sum == goal) {
+            alert("you won");
+            reset();
+        }
+        else if (sum > goal) {
+            alert("you lost");
+            reset();
+        }
+       
+
     })
 
-    console.log("endgame " + globalsum)
+    console.log("endgame " + sum)
     console.log("endgame " + goal)
-    if (sum == goal) {
-        alert("you won");
-    }
-    else if (sum > goal)
-        alert("you lost");
+    // if (sum == goal) {
+    //     alert("you won");
+    // }
+    // else if (sum > goal)
+    //     alert("you lost");
 });
 
