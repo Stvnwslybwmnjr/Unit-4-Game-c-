@@ -1,6 +1,8 @@
 $(document).ready(function () {
     console.log("ready!");
 
+// ================Variables=======================
+
     let goal = Math.floor(Math.random() * 101 + 19);
     console.log("goal " + goal);
 
@@ -25,6 +27,8 @@ $(document).ready(function () {
     
     displaywins.text(wins);
     displayloses.text(loses);
+
+    // ===================RESET FUNCTION========================
     
     function reset() {
         goal = Math.floor(Math.random() * 101 + 19);
@@ -32,73 +36,85 @@ $(document).ready(function () {
         button2 = Math.floor(Math.random() * 11 + 1);
         button3 = Math.floor(Math.random() * 11 + 1);
         button4 = Math.floor(Math.random() * 11 + 1);
-        let sum = 0;
+        sum = 0;
         displaysum.text(sum);
         $("#goal").text(goal);
         
     }
-    
+    // ===============Win Lose Functions======================
+
+    function won(){
+        alert("You Won!");
+            reset();
+            wins++;
+            $("#wins").text(wins)
+    }
+
+    function lost(){
+        alert("Can't win em' all!");
+        reset();
+        loses++;
+        $("#loses").text(loses)
+    }
+// ====================== Buttons==============================
+
     $(".btn1").on("click", function () {
-        sum = sum + button1;
+        sum += button1;
         displaysum.text(sum);
         console.log(button1);
         if (sum == goal) {
-            alert("you won");
-            reset();
+            won();
         }
         else if (sum > goal) {
-            alert("you lost");
-            reset();
+            lost();
         };
        
     });
 
     $(".btn2").on("click", function () {
-        sum = sum + button2;
+        sum += button2;
         displaysum.text(sum);
         console.log(button2);
         if (sum == goal) {
-            alert("you won");
-            reset();
+            won();
         }
         else if (sum > goal) {
-            alert("you lost");
-            reset();
+            lost();
         };
        
     });
 
     $(".btn3").on("click", function () {
-        sum = sum + button3;
+        sum += button3;
         displaysum.text(sum);
         console.log(button3);
         if (sum == goal) {
-            alert("you won");
-            reset();
+           won();
         }
         else if (sum > goal) {
-            alert("you lost");
-            reset();
+            lost();
         };
         
     });
 
     $(".btn4").on("click", function () {
-        sum = sum + button4;
+        sum += button4;
         displaysum.text(sum)
         console.log(button4);
         if (sum == goal) {
-            alert("you won");
-            reset();
+            won();
         }
         else if (sum > goal) {
-            alert("you lost");
-            reset();
+            lost();
         }
        
 
     })
 
+    // ================= END GAME==================
+
+/*I was trying to return the sum from the on.click functions and have a win/lose conditional at the end here 
+but I couldn't get it to work so i just threw the conditional into the click functions*/
     console.log("endgame " + sum)
     console.log("endgame " + goal)
     // if (sum == goal) {

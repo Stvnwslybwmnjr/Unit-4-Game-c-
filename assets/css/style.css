@@ -1,0 +1,30 @@
+body {
+    background-image: url("../images/beanstalk.png")
+}
+h1, h2 {
+   font-family: 'Bungee Shade', cursive;
+   color: rgb(255, 0, 0);
+}
+p {
+    font-family: 'Koulen', cursive;
+    font-weight: 900;
+    font-size: 4em;
+}
+button {
+    background: white;
+    height: 190px;
+}
+@media only screen and (max-width: 600px) {
+    p, h1, h2 {
+        font-size: 20px;
+    }
+    button {
+        height: 100px;
+        width:  100px;
+    }
+    .gem {
+        width: 90px;
+        object-fit: contain;
+        
+    }
+}
