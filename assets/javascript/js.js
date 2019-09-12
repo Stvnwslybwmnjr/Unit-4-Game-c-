@@ -24,7 +24,10 @@ $(document).ready(function () {
     var displaywins = $("#wins");
     var displayloses = $("#loses");
     var displaysum = $("#sum");
-    
+
+    let applause = new Audio('./assets/audio/applause.mp3');
+    let foghorn = new Audio('./assets/audio/foghorn.mp3');
+
     displaywins.text(wins);
     displayloses.text(loses);
 
@@ -47,7 +50,8 @@ $(document).ready(function () {
         alert("You Won!");
             reset();
             wins++;
-            $("#wins").text(wins)
+            $("#wins").text(wins);
+            applause.play();
     }
 
     function lost(){
@@ -55,6 +59,7 @@ $(document).ready(function () {
         reset();
         loses++;
         $("#loses").text(loses)
+        foghorn.play();
     }
 // ====================== Buttons==============================
 
